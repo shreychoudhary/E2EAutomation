@@ -1,22 +1,24 @@
 package tests.api;
 
-import static io.restassured.RestAssured.*;
+import static io.restassured.RestAssured.given;
 
 import org.testng.annotations.Test;
 
 import base.BaseAPI;
 import io.restassured.http.ContentType;
+import io.restassured.response.Response;
 
 public class LoginAPITest extends BaseAPI {
 
     @Test
     public void loginApi() {
-        given()
+        Response response=given()
             .contentType(ContentType.JSON)
-            .body("{\"email\":\"eve.holt@reqres.in\",\"password\":\"cityslicka\"}")
         .when()
-            .post("/api/login")
+            .get("/products")
         .then()
-            .statusCode(200);
+            .statusCode(200)
+            .extract().response();
+        System.out.println(response.asPrettyString());
     }
 }

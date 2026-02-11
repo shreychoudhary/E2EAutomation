@@ -15,7 +15,7 @@ public class LoginPage {
     @FindBy(id = "password")
     WebElement password;
 
-    @FindBy(id = "login")
+    @FindBy(xpath = "//*[@type='submit']")
     WebElement loginBtn;
 
     public LoginPage(WebDriver driver) {
@@ -27,6 +27,7 @@ public class LoginPage {
         username.sendKeys(user);
         password.sendKeys(pass);
         loginBtn.click();
+        System.out.println(driver.getTitle());
     }
 }
 
