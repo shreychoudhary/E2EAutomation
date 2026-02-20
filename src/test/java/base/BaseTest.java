@@ -1,21 +1,21 @@
 package base;
 
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 
 import config.ConfigReader;
 import core.DriverFactory;
 
 public class BaseTest {
 
-    @BeforeMethod
+    @BeforeClass
     public void setup() {
         DriverFactory.init();
         DriverFactory.get()
             .get(ConfigReader.get("baseUrl"));
     }
 
-    @AfterMethod
+    @AfterClass
     public void teardown() {
         DriverFactory.quit();
     }

@@ -42,3 +42,5 @@ node_modules/
 *.tmp
 *.swp
 *.bak
+# TestNG reports
+test-output/
